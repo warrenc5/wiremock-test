@@ -1,0 +1,14 @@
+{
+    "name": "secondary",
+    "request": {
+        "urlPathPattern": "/secondary",
+        "method": "POST"
+    },
+    "response": {
+        "status": 402,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "bodyFileName": "secondary-response.json"
+    }
+}

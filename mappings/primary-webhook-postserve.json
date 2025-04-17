@@ -1,0 +1,30 @@
+{
+    "name": "primary",
+    "request": {
+        "urlPathPattern": "/primary",
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "bodyFileName": "primary-response.json"
+    },
+    "postServeActions": [
+        {
+            "name": "webhook",
+            "parameters": {
+                "method": "POST",
+                "url": "http://localhost:8080/secondary",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "bodyFileName": "__files/secondary-request.json"
+            }
+        }
+    ]
+}

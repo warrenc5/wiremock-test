@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>mofokom</groupId>
+    <artifactId>wiremock-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.jknack</groupId>
+            <artifactId>handlebars</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-standalone</artifactId>
+            <version>3.12.1</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.wiremock</groupId>
+            <artifactId>wiremock-webhooks-extension</artifactId>
+            <version>2.35.0</version>
+        </dependency>
+                -->
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>mappings</directory>
+            </resource>
+            <resource>
+                <directory>__files</directory>
+            </resource>
+        </resources>
+        <defaultGoal>dependency:copy-dependencies verify</defaultGoal>
+        <plugins>
+            <plugin>
+                <artifactId>json-schema-validator</artifactId>
+                <groupId>com.groupon.maven.plugin.json</groupId>
+                <version>1.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <validations>
+                        <validation>
+                            <directory>${basedir}/__files</directory>
+                            <includes>
+                                <include>**/*.json</include>
+                            </includes>
+                        </validation>
+                    </validations>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

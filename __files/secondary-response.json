@@ -1,0 +1,3 @@
+{
+    "secondary": "{{jsonPath request.body '$.name'}}"
+}
