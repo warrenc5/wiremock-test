@@ -1,3 +1,4 @@
 {
-    "primary": "{{jsonPath request.body '$.name'}}"
+    "primary-response-primary-request": "{{jsonPath request.body '$.primary-request'}}",
+    "primary-response": "WOW"
 }

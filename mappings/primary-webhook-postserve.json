@@ -23,7 +23,7 @@
                 "headers": {
                     "Content-Type": "application/json"
                 },
-                "bodyFileName": "__files/secondary-request.json"
+                "bodyFileName": "secondary-request.json"
             }
         }
     ]

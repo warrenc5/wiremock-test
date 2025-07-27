@@ -1,3 +1,6 @@
 {
-    "name": "{{jsonPath originalRequest.body '$.name'}}"
+    "secondary-request-primary-request": "{{jsonPath originalRequest.body '$.primary-request'}}",
+    "secondary-request-primary-response-status": "{{originalResponse.status}}",
+    "secondary-request-primary-response-headers": "{{originalResponse.headers.Content-Type}}",
+    "secondary-request-primary-response-body": "{{jsonPath originalResponse.body '$.primary-response'}}"
 }

@@ -1,3 +1,5 @@
 {
-    "secondary": "{{jsonPath request.body '$.name'}}"
+    "secondary-response-secondary-request-primary-request": "{{jsonPath request.body '$.secondary-request-primary-request'}}",
+    "secondary-response-secondary-request-primary-response-status": "{{jsonPath request.body '$.secondary-request-primary-response-status'}}",
+    "secondary-response-secondary-request-primary-response-body": "{{jsonPath request.body '$.secondary-request-primary-response-body'}}"
 }
