@@ -1,14 +1,19 @@
 {
-    "name": "secondary",
-    "request": {
-        "urlPathPattern": "/secondary",
-        "method": "POST"
+  "name": "secondary",
+  "request": {
+    "urlPathPattern": "/secondary",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?((@['secondary-request-primary-request'] == 'postserve' || @['secondary-request-primary-request'] == 'serveevent') && @['secondary-request-primary-response-status'] == '200' && @['secondary-request-primary-response-headers'] == 'application/json' && (@['secondary-request-primary-response-body'] == 'response-postserve' || @['secondary-request-primary-response-body'] == 'response-serveevent'))]"
+      }
+    ]
+  },
+  "response": {
+    "status": 402,
+    "headers": {
+      "Content-Type": "application/json"
     },
-    "response": {
-        "status": 402,
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "bodyFileName": "secondary-response.json"
-    }
+    "bodyFileName": "secondary-response.json"
+  }
 }

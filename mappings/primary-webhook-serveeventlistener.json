@@ -1,30 +1,27 @@
 {
-    "name": "primary",
-    "request": {
-        "urlPathPattern": "/primary-serveevent",
-        "method": "POST"
+  "name": "primary-serveevent",
+  "request": {
+    "urlPathPattern": "/primary-serveevent",
+    "method": "POST"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
     },
-    "response": {
-        "status": 200,
+    "bodyFileName": "primary-response.json"
+  },
+  "serveEventListeners": [
+    {
+      "name": "webhook",
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8080/secondary",
         "headers": {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
-        "bodyFileName": "primary-response.json"
-    },
-    "serveEventListeners": [
-        {
-            "name": "webhook",
-            "parameters": {
-                "method": "POST",
-                "url": "http://localhost:8080/secondary",
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "bodyFileName": "secondary-request.json"
-            }
-        }
-    ]
+        "bodyFileName": "secondary-request.json"
+      }
+    }
+  ]
 }
